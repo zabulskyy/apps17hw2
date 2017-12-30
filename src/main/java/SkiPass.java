@@ -17,11 +17,11 @@ class SkiPass {
         return strategy;
     }
 
-    public SkiPassStrategy options(){
+    public SkiPassStrategy options() {
         return strategy;
     }
 
-    public String getIdentificator(){
+    public String getIdentificator() {
         return identificator;
     }
 

@@ -19,6 +19,7 @@ public class TestAll {
 
     @Test
     public void test() {
+        Turnstile.check(aw_50_L);
         assertEquals(50, aw_50_L.options().credits());
         Turnstile.turn(aw_50_L);
         assertEquals(49, aw_50_L.options().credits());

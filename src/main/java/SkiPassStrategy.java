@@ -4,17 +4,12 @@ import java.util.GregorianCalendar;
 
 abstract class SkiPassStrategy implements SkiPassInterface {
 
-    private Date dateOfPurchase;
     private Calendar dueTo;
     private WeekMode weekMode;
 
-    SkiPassStrategy(WeekMode weekMode){
+    SkiPassStrategy(WeekMode weekMode) {
         this.weekMode = weekMode;
-    }
-
-    void setDate() {
-        this.dateOfPurchase = new Date();
-        this.dueTo = new GregorianCalendar(2999, 12, 31);
+        this.dueTo = new GregorianCalendar(2999, 11, 31);
     }
 
     private boolean blocked;

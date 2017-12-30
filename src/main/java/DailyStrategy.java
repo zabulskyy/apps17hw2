@@ -6,22 +6,19 @@ class DailyStrategy extends SkiPassStrategy {
 
     private int daysLeft;
     private Day checkDay;
-    private WeekMode weekMode;
 
     DailyStrategy(SkiPassMode days, WeekMode weekMode) {
         super(weekMode);
         this.daysLeft = days.credits;
-        this.weekMode = weekMode;
-        this.setDate();
         this.setDay();
 
     }
 
-    private void setDay(){
+    private void setDay() {
         this.checkDay = getCurrentDay();
     }
 
-    private Day getCurrentDay(){
+    private Day getCurrentDay() {
         Calendar calendar = new GregorianCalendar();
 
         int d = calendar.get(Calendar.DAY_OF_MONTH);
@@ -38,8 +35,6 @@ class DailyStrategy extends SkiPassStrategy {
     }
 
     public void count() {
-        Calendar calendar = new GregorianCalendar();
-
         if (!checkDay.equals(getCurrentDay())) {
             this.daysLeft--;
             this.checkDay = getCurrentDay();
