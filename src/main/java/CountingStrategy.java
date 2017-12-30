@@ -1,12 +1,9 @@
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-
 public class CountingStrategy extends SkiPassStrategy {
 
     private int liftsLeft;
     private WeekMode weekMode;
 
-    public CountingStrategy(SkiPassMode lifts, WeekMode weekMode) {
+    CountingStrategy(SkiPassMode lifts, WeekMode weekMode) {
         switch (lifts) {
             case ONE_LIFT:
                 this.liftsLeft = 1;
@@ -30,26 +27,50 @@ public class CountingStrategy extends SkiPassStrategy {
 
     }
 
-    public boolean isValidWeekday() {
-        return this.isValidDay(this.weekMode);
-    }
 
-
-    void check() {
+    public void check() {
         System.out.println(liftsLeft + " lifts left");
         System.out.println("Have a nice trip!");
     }
 
 
     public boolean isValid() {
-        return this.liftsLeft > 0 && !this.isBlocked() && !this.isOutdated();
+        if (isBlocked()){
+            System.out.println("SkiPass is blocked");
+            return false;
+        }
+
+        if (isOutdated()){
+            System.out.println("SkiPass is outdated");
+            return false;
+        }
+
+        if (!isValidWeekday()){
+            System.out.println("SkiPass is available in another weekday");
+            return false;
+        }
+
+        if (liftsLeft <= 0){
+            System.out.println("No lifts left");
+            return false;
+        }
+
+        return true;
     }
 
-    void count() {
+    public void count() {
         this.liftsLeft--;
     }
 
-    void add(int amount) {
+    public int credits() {
+        return this.liftsLeft;
+    }
 
+    public void add(int amount) {
+        this.liftsLeft += amount;
+    }
+
+    public void add() {
+        this.liftsLeft++;
     }
 }

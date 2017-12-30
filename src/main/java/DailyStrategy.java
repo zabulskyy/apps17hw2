@@ -28,9 +28,6 @@ public class DailyStrategy extends SkiPassStrategy {
 
     }
 
-    public boolean isValid() {
-        return this.daysLeft > 0 && !this.isBlocked() && !this.isOutdated() && this.isValidWeekday();
-    }
 
     public void check() {
         System.out.println(daysLeft + " days left");
@@ -50,13 +47,18 @@ public class DailyStrategy extends SkiPassStrategy {
         }
     }
 
+    public int credits() {
+        return this.daysLeft;
+    }
+
     public void add(int amount) {
         this.daysLeft += amount;
     }
 
-    public boolean isValidWeekday() {
-        return this.isValidDay(this.weekMode);
+    public void add() {
+        this.daysLeft++;
     }
+
 
 }
 
