@@ -1,4 +1,3 @@
-import Strategies.CountingStrategy;
 import Strategies.SkiPassStrategy;
 
 public class SkiPass {
