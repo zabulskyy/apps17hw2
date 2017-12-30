@@ -6,8 +6,9 @@ public class DailyStrategy extends SkiPassStrategy {
 
     private int daysLeft;
     private Day checkDay;
+    private WeekMode weekMode;
 
-    public DailyStrategy(Days days) {
+    public DailyStrategy(SkiPassMode days, WeekMode weekMode) {
         switch (days) {
             case ONE_DAY:
                 this.daysLeft = 1;
@@ -18,11 +19,17 @@ public class DailyStrategy extends SkiPassStrategy {
             case FIVE_DAYS:
                 this.daysLeft = 5;
                 break;
+            default:
+                this.daysLeft = 0;
         }
+
+        this.weekMode = weekMode;
+        this.setDate();
+
     }
 
     public boolean isValid() {
-        return this.daysLeft > 0 && !this.isBlocked() && !this.isOutdated();
+        return this.daysLeft > 0 && !this.isBlocked() && !this.isOutdated() && this.isValidWeekday();
     }
 
     public void check() {
@@ -47,6 +54,9 @@ public class DailyStrategy extends SkiPassStrategy {
         this.daysLeft += amount;
     }
 
+    public boolean isValidWeekday() {
+        return this.isValidDay(this.weekMode);
+    }
 
 }
 
@@ -65,3 +75,4 @@ final class Day {
         return d == this.d && m == this.m && y == this.y;
     }
 }
+

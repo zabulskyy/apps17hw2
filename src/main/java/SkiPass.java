@@ -28,4 +28,6 @@ public class SkiPass {
     public void setIdentificator(String identificator) {
         this.identificator = identificator;
     }
+
+
 }
