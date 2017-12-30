@@ -1,7 +1,7 @@
 import java.util.UUID;
 
 public class SkiPassFactory {
-    public static SkiPass newSkiPass(SkiPassMode skiPassMode, WeekMode weekMode) throws Exception {
+    public SkiPass newSkiPass(SkiPassMode skiPassMode, WeekMode weekMode) throws Exception {
         String id = UUID.randomUUID().toString();
 
         SkiPassStrategy skiPassStrategy;

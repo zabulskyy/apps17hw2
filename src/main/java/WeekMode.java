@@ -1,4 +1,4 @@
-public enum WeekMode {
+enum WeekMode {
     ALL_WEEK,
     WEEKEND,
     WEEKDAY,

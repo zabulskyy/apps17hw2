@@ -2,15 +2,19 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-public abstract class SkiPassStrategy implements SkiPassInterface {
+abstract class SkiPassStrategy implements SkiPassInterface {
 
     private Date dateOfPurchase;
-    private Date dueTo;
+    private Calendar dueTo;
     private WeekMode weekMode;
+
+    SkiPassStrategy(WeekMode weekMode){
+        this.weekMode = weekMode;
+    }
 
     void setDate() {
         this.dateOfPurchase = new Date();
-        this.dueTo = new Date(2999, 12, 31);
+        this.dueTo = new GregorianCalendar(2999, 12, 31);
     }
 
     private boolean blocked;
@@ -18,7 +22,7 @@ public abstract class SkiPassStrategy implements SkiPassInterface {
     boolean isValidWeekday() {
         Calendar calendar = new GregorianCalendar();
         int day = calendar.get(Calendar.DAY_OF_WEEK);
-        switch (weekMode) {
+        switch (this.weekMode) {
             case ALL_WEEK:
                 return true;
             case WEEKEND:
@@ -63,11 +67,11 @@ public abstract class SkiPassStrategy implements SkiPassInterface {
         return this.dueTo.before(new Date());
     }
 
-    public void setDueTo(Date date) {
+    public void setDueTo(Calendar date) {
         this.dueTo = date;
     }
 
-    public Date getDueTo() {
+    public Calendar getDueTo() {
         return dueTo;
     }
 

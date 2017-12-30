@@ -1,4 +1,4 @@
-public interface SkiPassInterface {
+interface SkiPassInterface {
 
     void check();
 

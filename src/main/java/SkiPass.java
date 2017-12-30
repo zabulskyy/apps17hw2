@@ -1,4 +1,4 @@
-public class SkiPass {
+class SkiPass {
 
     private SkiPassStrategy strategy;
     private String identificator;

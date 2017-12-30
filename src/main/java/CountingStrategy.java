@@ -1,27 +1,11 @@
-public class CountingStrategy extends SkiPassStrategy {
+class CountingStrategy extends SkiPassStrategy {
 
     private int liftsLeft;
     private WeekMode weekMode;
 
     CountingStrategy(SkiPassMode lifts, WeekMode weekMode) {
-        switch (lifts) {
-            case ONE_LIFT:
-                this.liftsLeft = 1;
-                break;
-            case TEN_LIFTS:
-                this.liftsLeft = 10;
-                break;
-            case TWENTY_LIFTS:
-                this.liftsLeft = 20;
-                break;
-            case FIFTY_LIFTS:
-                this.liftsLeft = 50;
-                break;
-            case HUNDRED_LIFTS:
-                this.liftsLeft = 100;
-                break;
-
-        }
+        super(weekMode);
+        this.liftsLeft = lifts.credits;
         this.weekMode = weekMode;
         this.setDate();
 
