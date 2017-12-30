@@ -1,5 +1,3 @@
-package Enums;
-
 public enum Lifts {
     ONE_LIFT,
     TEN_LIFTS,

@@ -1,11 +1,8 @@
-package Strategies;
-
-import Enums.Days;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-public class DailyStrategy extends Strategies.SkiPassStrategy {
+public class DailyStrategy extends SkiPassStrategy {
 
     private int daysLeft;
     private Day checkDay;

@@ -1,8 +1,4 @@
-package Strategies;
-
-import Enums.Lifts;
-
-public class CountingStrategy extends Strategies.SkiPassStrategy {
+public class CountingStrategy extends SkiPassStrategy {
 
     private int liftsLeft;
 

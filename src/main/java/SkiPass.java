@@ -1,5 +1,3 @@
-import Strategies.SkiPassStrategy;
-
 public class SkiPass {
 
     private SkiPassStrategy strategy;

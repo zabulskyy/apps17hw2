@@ -1,5 +1,3 @@
-package Strategies;
-
 import java.util.Date;
 
 public abstract class SkiPassStrategy {
